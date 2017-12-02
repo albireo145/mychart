@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.bootcss.com/fullPage.js/2.9.5/jquery.fullpage.min.js"></script>
+</head>
+
+<body>
+
+    <script src="./js/MyChart.js"></script>
+    <script src="./js/ChartBase.js"></script>
+    <script src="./js/ChartBar.js"></script>
+    <script src="./js/ChartPolyline.js"></script>
+    <script src="./js/ChartRadar.js"></script>
+
+
+    <script>
+        $(function () {
+            var mychart = new MyChart();
+            mychart
+            .addPage('polyline')
+            .addComponent('折线图',{
+                // width:530,
+                // height:400,
+                width:'100%',
+                height:'50%',
+                css:{backgroundColor:'#fff',position:'absolute',top:'25%'},
+                type:'polyline',
+                data: [
+                    ['A项', .4, '#333'],
+                    ['B项', .2],
+                    ['C项', .3],
+                    ['D项', .45],
+                    ['E项', .1],
+                ]
+            })
+            .addPage('radar')
+            .addComponent('雷达图', {
+                // width:530,
+                // height:400,
+                width: '100%',
+                height: '50%',
+                css: { backgroundColor: '#fff', position: 'absolute', top: '25%' },
+                type: 'radar',
+                data: [
+                    ['A项', .9, '#333'],
+                    ['B项', .5],
+                    ['C项', .6],
+                    ['D项', .8],
+                    ['E项', .2],
+                ]
+            })                
+            .addPage('bar')
+            .addComponent('柱状图',{
+                width:'100%',
+                height:'50%',
+                css:{backgroundColor:'orange',position:'absolute',opacity:0},
+                animateIn:{opacity:1,top:'25%'},
+                animateOut:{opacity:0,top:'0'},
+                type:'bar',
+                data: [
+                    ['A项', .4, '#333'],
+                    ['B项', .2],
+                    ['C项', .1],
+                    ['D项', .05],
+                    ['E项', .3],
+                ]
+            })
+            .addPage('MyChart')
+            .addComponent('MyChart',{
+                width:'100%',
+                height:'50%',
+                css:{backgroundColor:'rgba(#eee,.5)',position:'absolute',opacity:0},
+                animateIn:{opacity:1,top:'25%'},
+                animateOut:{opacity:0,top:0}
+            })
+            .loader();
+        })
+        </script>
+</body>
+
+
+</html>
